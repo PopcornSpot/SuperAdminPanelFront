@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import SidebarComponent from "./Sidebar";
 import OverviewPage from "../Pages/OverviewPage";
 import MoviesPage from "../Pages/MoviesPage";
@@ -11,10 +11,10 @@ import CustomerPage from "../Pages/CustomerPage";
 const RouterComponent = () => {
   return (
     <div className="flex">
-      <div className="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white">
+      <div className="fixed top-0 left-0 h-full w-52 bg-gray-800 max-sm:hidden text-white">
         <SidebarComponent />
       </div>
-      <div className="ml-64 flex-1 p-4">
+      <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
         <Routes>
           <Route path="/" element={<OverviewPage />} />
           <Route path="/movies" element={<MoviesPage />} />

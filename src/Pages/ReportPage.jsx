@@ -64,7 +64,7 @@ const ReportPage = () => {
         </div>
 
 
-        <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        <button className="bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-500">
           Download All Reports
         </button>
       </div>
@@ -89,7 +89,7 @@ const ReportPage = () => {
                 <td className="py-3 px-4 text-gray-800">{report.generatedBy}</td>
                 <td
                   className={`py-3 px-4 text-gray-800 ${
-                    report.status === "Completed" ? "text-green-500" : "text-red-500"
+                    report.status === "Completed" ? "text-green-500" : "text-orange-400"
                   }`}
                 >
                   {report.status}
@@ -99,7 +99,7 @@ const ReportPage = () => {
                     className={`py-2 px-4 rounded ${
                       report.status === "Completed"
                         ? "bg-green-500 text-white hover:bg-green-600"
-                        : "bg-yellow-500 text-white hover:bg-yellow-600"
+                        : "bg-orange-400 px-5 text-white hover:bg-orange-500"
                     }`}
                   >
                     {report.actions}

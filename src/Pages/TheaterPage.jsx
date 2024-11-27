@@ -5,41 +5,41 @@ const TheaterPage = () => {
     {
       id: 1,
       name: "Cineplex Mall Theater",
-      location: "Downtown",
+      location: "Pallavaram",
       screens: 10,
-      amenities: ["IMAX", "3D", "Snacks", "Luxury Seating"],
-      image: "https://via.placeholder.com/300x200?text=Cineplex+Mall+Theater",
+      amenities: ["IMAX", "3D",],
+      image: "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/untitled-11609146866114.jpg",
     },
     {
       id: 2,
-      name: "Galaxy Cinemas",
-      location: "Uptown",
+      name: "Vidhya Cinemas",
+      location: "Tambaram",
       screens: 7,
-      amenities: ["Dolby Atmos", "Snacks", "3D"],
-      image: "https://via.placeholder.com/300x200?text=Galaxy+Cinemas",
+      amenities: ["Dolby Atmos", "3D"],
+      image: "https://tamilagam.in/img/chennai-theatres.jpg",
     },
     {
       id: 3,
-      name: "Regal Theaters",
-      location: "Midtown",
+      name: "Sathyam Theaters",
+      location: "Tambaram",
       screens: 5,
-      amenities: ["Recliner Seats", "Snacks", "4DX"],
-      image: "https://via.placeholder.com/300x200?text=Regal+Theaters",
+      amenities: ["IMAX","4D"],
+      image: "https://cdn.dribbble.com/userupload/9446142/file/original-c7a2f12cc32d8a5d3f3cb0dde12ed49d.jpg",
     },
     {
       id: 4,
-      name: "Star Cinema",
-      location: "City Center",
+      name: "Vettri Cinema",
+      location: "Chrompet",
       screens: 8,
-      amenities: ["IMAX", "Luxury Seating", "Dolby Surround"],
-      image: "https://via.placeholder.com/300x200?text=Star+Cinema",
+      amenities: ["IMAX", "Dolby Surround"],
+      image: "https://cdn3.ticketnew.com/partners/img/Murugan_Cinemas/2023/red.jpg",
     },
   ];
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h1 className="text-2xl font-bold text-gray-800 mb-4">Theaters</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {theaters.map((theater) => (
           <div
             key={theater.id}
@@ -62,7 +62,7 @@ const TheaterPage = () => {
                   <li key={index}>{amenity}</li>
                 ))}
               </ul>
-              <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+              <button className="mt-4 bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-500">
                 View Details
               </button>
             </div>

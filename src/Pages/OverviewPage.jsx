@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, ResponsiveContainer } from "recharts";
 
 const OverviewPage = () => {
   const OverviewDetail = [
@@ -26,12 +26,12 @@ const OverviewPage = () => {
   ];
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 w-full min-h-screen">
       
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Dashboard Overview</h1>
       </div>
-      <div className="w-full flex items-center justify-center gap-8">
+      <div className="w-full flex items-center flex-wrap justify-center gap-8">
         {OverviewDetail.map((value, index) => (
           <div
             key={index}
@@ -41,7 +41,7 @@ const OverviewPage = () => {
             <p className="text-2xl font-bold text-gray-800">{value.value}</p>
             <p
               className={`text-sm font-medium ${
-                value.change.startsWith("+") ? "text-green-500" : "text-red-500"
+                value.change.startsWith("+") ? "text-green-500" : "text-orange-400"
               }`}
             >
               {value.change} since last month
@@ -51,41 +51,42 @@ const OverviewPage = () => {
       </div>
 
       
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
        
-        <div className="bg-white shadow rounded-lg p-6">
+        <div className="bg-white w-full h-[500px] max-sm:h-[350px] pb-16 shadow rounded-lg p-6 max-sm:px-1">
           <h2 className="text-lg font-bold text-gray-800 mb-4">Monthly Revenue</h2>
+          <ResponsiveContainer>
           <LineChart
-            width={500}
-            height={300}
             data={revenueData}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            margin={{ top: 5, right: 30, left: 5, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="revenue" stroke="#8884d8" />
+            <Line type="monotone" dataKey="revenue" stroke="#fb923c" />
           </LineChart>
+          </ResponsiveContainer>
         </div>
 
        
-        <div className="bg-white shadow rounded-lg p-6">
+        <div className="bg-white w-full h-[500px] max-sm:h-[350px] shadow rounded-lg p-6 max-sm:pb-16 pb-16 max-sm:p-2">
           <h2 className="text-lg font-bold text-gray-800 mb-4">Daily Users</h2>
+          <ResponsiveContainer>
           <BarChart
-            width={500}
-            height={300}
             data={usersData}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            margin={{ top: 5, right: 30, left: 5, bottom: 5 }}
+ 
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="day" />
+            <XAxis dataKey="day"/>
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="users" fill="#82ca9d" />
+            <Bar dataKey="users" fill="#fb923c" />
           </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
 

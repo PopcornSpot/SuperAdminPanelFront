@@ -21,7 +21,7 @@ const SidebarComponent = () => {
   ];
 
   return (
-    <div className="w-64 h-screen bg-white text-black">
+    <div className="w-52 xl:w-60  h-screen bg-white text-black">
       <div className="p-4 text-2xl font-bold h-20 flex items-center justify-center shadow-sm">PopcornSpot</div>
       <ul className="mt-4 space-y-2 shadow-sm">
         {SidebarDetail.map((item, index) => (
