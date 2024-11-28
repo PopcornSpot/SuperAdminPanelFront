@@ -4,6 +4,7 @@ import { FaTachometerAlt } from "react-icons/fa";
 import { RiMovie2Fill } from "react-icons/ri";
 import { GiTheater } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
+import { RiUserAddLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { MdReportProblem } from "react-icons/md";
 
@@ -16,6 +17,7 @@ const SidebarComponent = () => {
     { value: "Movies", icon: <RiMovie2Fill />, path: "/movies" },
     { value: "Theater", icon: <GiTheater />, path: "/theater" },
     { value: "customers", icon: <FaUsers />, path: "/customer" },
+    { value: "Create Admin", icon: <RiUserAddLine />, path: "/createadmin" },
     { value: "Profile", icon: <CgProfile />, path: "/profile" },
     { value: "Reports", icon: <MdReportProblem />, path: "/report" },
   ];

@@ -7,6 +7,7 @@ import ProfilePage from "../Pages/ProfilePage";
 import ReportPage from "../Pages/ReportPage";
 import TheaterPage from "../Pages/TheaterPage";
 import CustomerPage from "../Pages/CustomerPage";
+import CreateAdmin from "../Pages/CreateadminPage";
 
 const RouterComponent = () => {
   return (
@@ -20,6 +21,7 @@ const RouterComponent = () => {
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/theater" element={<TheaterPage />} />
           <Route path="/customer" element={<CustomerPage />} />
+          <Route path="/createadmin" element={<CreateAdmin/>}/>
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/report" element={<ReportPage />} />
         </Routes>
