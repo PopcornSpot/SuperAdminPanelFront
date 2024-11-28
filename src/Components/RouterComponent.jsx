@@ -1,6 +1,5 @@
-
 import React from "react";
-import {  Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import SidebarComponent from "./Sidebar";
 import OverviewPage from "../Pages/OverviewPage";
 import MoviesPage from "../Pages/MoviesPage";
@@ -9,23 +8,50 @@ import ReportPage from "../Pages/ReportPage";
 import TheaterPage from "../Pages/TheaterPage";
 import CustomerPage from "../Pages/CustomerPage";
 import HeroSection from "../Pages/HeroSectionPage";
+import CreateAdmin from "../Pages/CreateadminPage";
+import LoginPage from "../Pages/Login";
+import ForgotPassword from "../Pages/ForgotPassword";
+import PrivateRoute from "./PrivateRouterComp";
 // import HeaderMain from "./HeaderComponent";
 
 const RouterComponent = () => {
   return (
     <>
-    
-      
-        <Routes>
+      <Routes>
+        <Route index element={<LoginPage />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/home" element={<PrivateRoute />}>
           <Route index element={<OverviewPage />} />
-          <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/theater" element={<TheaterPage />} />
-          <Route path="/customer" element={<CustomerPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/report" element={<ReportPage />} />
-          <Route path="/herosection" element={<HeroSection />} />
-        </Routes>
+        </Route>
 
+        <Route path="/movies" element={<PrivateRoute />}>
+        <Route index element={<MoviesPage />} />
+        </Route>
+
+        <Route path="/theater" element={<PrivateRoute />}>
+        <Route index element={<TheaterPage />} /> 
+        </Route>
+
+        <Route path="/customer" element={<PrivateRoute />}>
+        <Route index element={<CustomerPage />} />
+        </Route>
+
+        <Route path="/profile" element={<PrivateRoute />}>
+        <Route index element={<ProfilePage />} />
+        </Route>
+
+        <Route path="/report" element={<PrivateRoute />}>
+        <Route index element={<ReportPage />} />
+        </Route>
+
+        <Route path="/herosection" element={<PrivateRoute />}>
+        <Route index element={<HeroSection />} />
+        </Route>
+
+        <Route path="/createadmin" element={<PrivateRoute />}>
+        <Route index element={<CreateAdmin />} />
+        </Route>
+      </Routes>
     </>
   );
 };

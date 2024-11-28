@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import SidebarComponent from "../Components/Sidebar";
 
-const CreateAdminPage = () => {
+const CreateAdmin = () => {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -55,8 +56,11 @@ const CreateAdminPage = () => {
   };
 
   return (
+    <>
+    <SidebarComponent/>
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8 w-full">
-      <div className="w-full max-w-4xl">
+      <div className="w-full mx-2 max-w-4xl">
         <div className="bg-white p-4 rounded-t-lg shadow-md">
           <h1 className="text-2xl font-bold text-gray-800">Create Admin</h1>
         </div>
@@ -77,8 +81,8 @@ const CreateAdminPage = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
-                  placeholder="Enter admin name"
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Admin Name"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm">{errors.name}</p>
@@ -98,8 +102,8 @@ const CreateAdminPage = () => {
                   name="mobile"
                   value={formData.mobile}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
-                  placeholder="Enter admin mobile number"
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Admin Mobile Number"
                 />
                 {errors.mobile && (
                   <p className="text-red-500 text-sm">{errors.mobile}</p>
@@ -119,8 +123,8 @@ const CreateAdminPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
-                  placeholder="Enter admin email"
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Admin Email"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm">{errors.email}</p>
@@ -140,8 +144,8 @@ const CreateAdminPage = () => {
                   name="screens"
                   value={formData.screens}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
-                  placeholder="Enter number of screens"
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Number of Screens"
                 />
                 {errors.screens && (
                   <p className="text-red-500 text-sm">{errors.screens}</p>
@@ -161,8 +165,8 @@ const CreateAdminPage = () => {
                   name="theatreName"
                   value={formData.theatreName}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
-                  placeholder="Enter theatre name"
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Theatre Name"
                 />
                 {errors.theatreName && (
                   <p className="text-red-500 text-sm">{errors.theatreName}</p>
@@ -174,23 +178,72 @@ const CreateAdminPage = () => {
                   htmlFor="pincode"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Pincode*
+                  Theatre ID*
                 </label>
                 <input
                   type="text"
                   id="pincode"
                   name="pincode"
-                  value={formData.pincode}
+                  value={formData.theatreID}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
-                  placeholder="Enter pincode"
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Theatre ID"
                 />
                 {errors.pincode && (
+                  <p className="text-red-500 text-sm">{errors.theatreID}</p>
+                )}
+              </div>
+
+
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Location*
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.location}
+                  onChange={handleChange}
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Theatre Location"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm">{errors.location}</p>
+                )}
+              </div>
+
+
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Pincode*
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.pincode}
+                  onChange={handleChange}
+                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  placeholder="Enter Theatre Pincode"
+                />
+                {errors.name && (
                   <p className="text-red-500 text-sm">{errors.pincode}</p>
                 )}
               </div>
+    
+
+
+
             </div>
 
+            
             <div className="mt-6 flex justify-between">
               <button
                 type="submit"
@@ -210,7 +263,9 @@ const CreateAdminPage = () => {
         </div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 
-export default CreateAdminPage;
+export default CreateAdmin;
