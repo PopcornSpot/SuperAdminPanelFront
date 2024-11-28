@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
-const FullScreenCarousel = () => {
+import SidebarComponent from "../Components/Sidebar"
+const HeroSection = () => {
   const images = [
     "https://moviegalleri.net/wp-content/uploads/2023/12/Thalapathy-Vijay-The-Greatest-Of-All-Time-GOAT-Movie-First-Look-Poster-HD.jpg",
     "https://moviegalleri.net/wp-content/uploads/2024/02/Sivakarthikeyan-Amaran-Movie-First-Look-Poster-HD.jpg",
@@ -10,7 +10,6 @@ const FullScreenCarousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Automatically move to the next image every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -18,12 +17,14 @@ const FullScreenCarousel = () => {
       );
     }, 3000);
 
-    return () => clearInterval(timer); // Cleanup on unmount
+    return () => clearInterval(timer);
   }, [images.length]);
 
   return (
-    <div className={`relative w-full h-screen bg-black overflow-hidden `}>
-      {/ Carousel Container /}
+    <>
+    <SidebarComponent/>
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
+    <div className={`relative w-full h-screen bg-gray-100 overflow-hidden `}>
       <div
         className={`absolute inset-0 flex transition-transform duration-70`}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -33,15 +34,13 @@ const FullScreenCarousel = () => {
             key={index}
             src={image}
             alt={`Slide ${index + 1}`}
-            className={`w-full h-full object-cover flex-shrink-0`}
+            className={`w-full h-full object-scale-down flex-shrink-0`}
           />
         ))}
       </div>
 
       
-      
-
-      {/ Indicators /}
+     
       <div className={`absolute bottom-12 w-full flex justify-center space-x-3`}>
         {images.map((_, index) => (
           <div
@@ -53,8 +52,7 @@ const FullScreenCarousel = () => {
         ))}
       </div>
 
-      {/ Action Buttons /}
-      <div className={`absolute bottom-1 w-full flex justify-center space-x-4`}>
+      <div className={`absolute bottom-1  mb-20 w-full flex justify-center space-x-4`}>
         <button className={`px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none transition-transform transform hover:scale-105`}>
           Edit
         </button>
@@ -63,9 +61,12 @@ const FullScreenCarousel = () => {
         </button>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 
 
 
-export default FullScreenCarousel;
+export default HeroSection;
+ 

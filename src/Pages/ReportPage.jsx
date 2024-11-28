@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SidebarComponent from "../Components/Sidebar"
 
 const ReportPage = () => {
   const reports = [
@@ -46,6 +47,9 @@ const ReportPage = () => {
       : reports.filter((report) => report.status === statusFilter);
 
   return (
+    <>
+    <SidebarComponent/>
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
     <div className="p-6 bg-gray-100 min-h-screen">
       <h1 className="text-2xl font-bold text-gray-800 mb-6">Reports</h1>
 
@@ -111,6 +115,8 @@ const ReportPage = () => {
         </table>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, ResponsiveContainer } from "recharts";
-
+import SidebarComponent from "../Components/Sidebar"
 const OverviewPage = () => {
   const OverviewDetail = [
     { title: "Total Users", value: "100", change: "+12%" },
@@ -25,7 +25,9 @@ const OverviewPage = () => {
     { day: "Fri", users: 500 },
   ];
 
-  return (
+  return (<>
+  <SidebarComponent/>
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
     <div className="p-6 bg-gray-100 w-full min-h-screen">
       
       <div className="mb-6">
@@ -104,6 +106,8 @@ const OverviewPage = () => {
         </ul>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 
