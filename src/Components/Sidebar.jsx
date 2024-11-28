@@ -31,7 +31,7 @@ const SidebarComponent = () => {
               className={`flex items-center p-3 text-sm font-medium transition-colors rounded-md ${
                 location.pathname === item.path
                   ? "bg-gray-700 text-white" 
-                  : "hover:bg-gray-700"
+                  : "hover:bg-gray-700 hover:text-white"
               }`}
             >
               <span className="mr-3 text-lg">{item.icon}</span>

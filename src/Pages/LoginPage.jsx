@@ -4,8 +4,6 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 
-
-
 const Login =()=>{
 
 
@@ -53,13 +51,7 @@ src={LoginImage} alt="" />
       </Link>
     </form>
 </div>    
-
 </div>
-
-
-
-
-
 
 )}
 
