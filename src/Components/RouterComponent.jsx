@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-// import SidebarComponent from "./Sidebar";
 import OverviewPage from "../Pages/OverviewPage";
 import MoviesPage from "../Pages/MoviesPage";
 import ProfilePage from "../Pages/ProfilePage";
@@ -12,7 +11,7 @@ import CreateAdmin from "../Pages/CreateadminPage";
 import LoginPage from "../Pages/Login";
 import ForgotPassword from "../Pages/ForgotPassword";
 import PrivateRoute from "./PrivateRouterComp";
-// import HeaderMain from "./HeaderComponent";
+import AdminPage from "../Pages/AdminPage";
 
 const RouterComponent = () => {
   return (
@@ -51,6 +50,16 @@ const RouterComponent = () => {
         <Route path="/createadmin" element={<PrivateRoute />}>
         <Route index element={<CreateAdmin />} />
         </Route>
+
+        <Route path="/admin" element={<PrivateRoute />}>
+        <Route index element={<AdminPage/>} />
+        </Route>
+  
+        <Route path="/updateadmin/:_id" element={<PrivateRoute />}>
+        <Route index element={<CreateAdmin/>} />
+        </Route>
+
+
       </Routes>
     </>
   );

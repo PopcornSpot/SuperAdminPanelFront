@@ -12,12 +12,13 @@ import { BiSolidLogOut } from "react-icons/bi";
 const SidebarComponent = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("Current Path:", location.pathname);
+  // console.log("Current Path:", location.pathname);
 
   const SidebarDetail = [
     { value: "Search", icon: <IoSearch />, path: "/search" },
     { value: "Overview", icon: <FaTachometerAlt />, path: "/home" },
     { value: "Create Admin", icon: <RiAdminFill />, path: "/createadmin" },
+    { value: "Admins", icon: <RiAdminFill />, path: "/admin" },
     { value: "Movies", icon: <RiMovie2Fill />, path: "/movies" },
     { value: "Theater", icon: <GiTheater />, path: "/theater" },
     { value: "Customers", icon: <FaUsers />, path: "/customer" },
