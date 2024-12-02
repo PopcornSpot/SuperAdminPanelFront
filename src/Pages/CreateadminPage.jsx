@@ -40,8 +40,6 @@ const fetchAdminForUpdate = async (_id,setForm) => {
 };
 
 
-
-
   const CreateAdmin = () => {
   const [formData, setFormData] = useState(initialState);
   const [adminEdit,setAdminEdit]=useState(false);

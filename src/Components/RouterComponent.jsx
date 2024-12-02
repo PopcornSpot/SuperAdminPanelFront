@@ -12,6 +12,7 @@ import LoginPage from "../Pages/Login";
 import ForgotPassword from "../Pages/ForgotPassword";
 import PrivateRoute from "./PrivateRouterComp";
 import AdminPage from "../Pages/AdminPage";
+import EditProfile from "../Pages/EditProfile";
 
 const RouterComponent = () => {
   return (
@@ -57,6 +58,10 @@ const RouterComponent = () => {
   
         <Route path="/updateadmin/:_id" element={<PrivateRoute />}>
         <Route index element={<CreateAdmin/>} />
+        </Route>
+
+        <Route path="/updateprofile/:_id" element={<PrivateRoute />}>
+        <Route index element={<EditProfile/>} />
         </Route>
 
 

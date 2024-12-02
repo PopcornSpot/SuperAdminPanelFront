@@ -27,6 +27,7 @@ const LoginPage = () => {
         .post("http://localhost:7000/superadmin/login", formData)
         .then((res) => {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("adminId",res.data.findEmail._id)
           toast.success(res.data.Message);
           setFormData(initialState);
           navigate("/home");
@@ -54,6 +55,7 @@ const LoginPage = () => {
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Email</label>
             <input
+              required
               name="email"
               type="email"
               value={formData.email}
@@ -69,6 +71,7 @@ const LoginPage = () => {
             </div>
 
             <input
+            required
               type="password"
               name="password"
               value={formData.password}

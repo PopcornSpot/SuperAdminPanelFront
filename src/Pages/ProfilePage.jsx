@@ -1,21 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SidebarComponent from "../Components/Sidebar"
 import AdminImage from "../assets/AdminImage.jpg"
+import axios from "axios";
+import { toast } from "react-toastify";
+
 
 const SuperAdminProfilePage = () => {
-  const superAdmin = {
-    name: "Super Admin",
-    email: "superadmin@gmail.com",
-    contact: "9834567890",
-    role: "Super Admin",
-    permissions: ["Manage Customers", "Access Reports","Manage Admins", "Monitor Activity"],
-    stats: {
-      totalAdmins: 5,
-      activeUsers: 500,
-      totalearnings: 104705900,
-    },
+ const permissions = ["Manage Customers", "Access Reports","Manage Admins", "Monitor Activity"]
+
+const stats ={
+  totalAdmins: 5,
+  activeUsers: 500,
+  totalearnings: 104705900,
+};
+
+
+  const [superAdmin, setSuperAdmin] = useState({});
+
+  const getAdminDetails = async () => {
+    try {
+      const authToken = localStorage.getItem("token");
+      const _id = localStorage.getItem("adminId");
+     
+      await axios
+        .get(`http://localhost:7000/superadmin/getsuperadmin/?_id=${_id}`,
+          {
+            headers: { Authorization: `Bearer ${authToken}`}
+          }
+        )
+        .then((res) => {
+          toast.success(res.data.Message)
+          setSuperAdmin(res.data.superAdmin)
+        })
+        .catch((err) => {
+          toast.error(err.response.data.Message)
+        });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+
+  useEffect(() => {
+    getAdminDetails();
+  }, []);
+
 
   return (
     <>
@@ -35,16 +64,16 @@ const SuperAdminProfilePage = () => {
         </div>
 
         <div className="lg:w-2/3 p-6 flex flex-col justify-center bg-slate-200">
-          <h2 className="text-xl font-bold text-gray-800">{superAdmin.name}</h2>
-          <p className="text-gray-600 font-semibold py-0.5 flex"><span className="block w-20">Name:</span> {superAdmin.role}</p>
+          <h2 className="text-xl font-bold flex w-full text-gray-800">{superAdmin.userName}</h2>
+          <p className="text-gray-600 font-semibold py-0.5 flex"><span className="block w-20">Role:</span> {superAdmin.role}</p>
           <p className="text-gray-600 font-semibold py-0.5 flex"><span className="block w-20">Email:</span> {superAdmin.email}</p>
-          <p className="text-gray-600 font-semibold py-0.5 flex"><span className="block w-20">Contact:</span> {superAdmin.contact}</p>
+          <p className="text-gray-600 font-semibold py-0.5 flex"><span className="block w-20">Contact:</span> {superAdmin.mobileNumber}</p>
 
          
           <div className="mt-4">
             <h3 className="text-lg font-semibold text-gray-800">Permissions:</h3>
             <ul className="list-disc list-inside text-gray-600">
-              {superAdmin.permissions.map((permission, index) => (
+              {permissions.map((permission, index) => (
                 <li key={index}>{permission}</li>
               ))}
             </ul>
@@ -54,18 +83,18 @@ const SuperAdminProfilePage = () => {
 
       <div className="mt-8">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Statistics</h2>
-        <div className="h-36 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white shadow rounded-lg p-4 text-center flex justify-center flex-col gap-5">
             <h3 className="text-gray-600 font-semibold">Total Admins</h3>
-            <p className="text-2xl font-bold text-gray-800">{superAdmin.stats.totalAdmins}</p>
+            <p className="text-2xl font-bold text-gray-800">{stats.totalAdmins}</p>
           </div>
           <div className="bg-white shadow rounded-lg p-4 text-center flex justify-center flex-col gap-5">
             <h3 className="text-gray-600 font-semibold">Active Users</h3>
-            <p className="text-2xl font-bold text-gray-800">{superAdmin.stats.activeUsers}</p>
+            <p className="text-2xl font-bold text-gray-800">{stats.activeUsers}</p>
           </div>
           <div className="bg-white shadow rounded-lg p-4 text-center flex justify-center flex-col gap-5">
             <h3 className="text-gray-600 font-semibold">Total Earnings</h3>
-            <p className="text-2xl font-bold text-gray-800">{superAdmin.stats.totalearnings}</p>
+            <p className="text-2xl font-bold text-gray-800">{stats.totalearnings}</p>
           </div>
         </div>
       </div>
@@ -73,12 +102,12 @@ const SuperAdminProfilePage = () => {
       <div className="mt-8">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Actions</h2>
         <div className="flex space-x-4">
-          <Link>
+          <Link to={`/updateprofile/${superAdmin._id}`}>
           <button className="bg-orange-400 text-white py-2 px-4 rounded hover:scale-105 transition-all hover:ease-in-out hover:bg-orange-500">
             Edit Profile
           </button>
           </Link>
-          <Link>
+          <Link to={"/forgot"}>
           <button className="bg-orange-400 text-white py-2 px-4 rounded hover:scale-105 transition-all hover:ease-in-out hover:bg-orange-500">
             Change Password
           </button>
