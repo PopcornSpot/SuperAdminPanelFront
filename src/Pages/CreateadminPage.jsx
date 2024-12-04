@@ -22,7 +22,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
   try {
     const authToken = localStorage.getItem("token");
     await axios
-      .get(`http://localhost:7000/admin/getsingleadmin/?_id=${_id}`,
+      .get(`http://localhost:7000/admin/superadmin/getsingleadmin/?_id=${_id}`,
         {
           headers: { Authorization: `Bearer ${authToken}` }
         }
@@ -56,8 +56,10 @@ const fetchAdminForUpdate = async (_id,setForm) => {
 
     try {
       const authToken = localStorage.getItem("token");
+      console.log("token",authToken);
+      
       adminEdit?  
-      await axios.put(`http://localhost:7000/admin/updateadmin/?_id=${_id}`, formData,
+      await axios.put(`http://localhost:7000/admin/superadmin/updateadmin/?_id=${_id}`, formData,
         {
           headers: { Authorization: `Bearer ${authToken}` }
         }
@@ -73,9 +75,12 @@ const fetchAdminForUpdate = async (_id,setForm) => {
       })
       :
       await axios
-        .post("http://localhost:7000/admin/register", formData)
+        .post("http://localhost:7000/admin/superadmin/register", formData,
+          {
+            headers: { Authorization: `Bearer ${authToken}` }
+          }
+        )
         .then((res) => {
-          localStorage.setItem("token", res.data.token);
           toast.success(res.data.Message);
           setFormData(initialState);
           navigate("/admin")

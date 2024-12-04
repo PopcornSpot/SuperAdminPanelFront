@@ -11,7 +11,7 @@ const AdminPage = () => {
     try {
       const authToken = localStorage.getItem("token");
       await axios
-        .get("http://localhost:7000/admin/alladmin",
+        .get("http://localhost:7000/admin/superadmin/alladmin",
           {
               headers: { Authorization: `Bearer ${authToken}` }
             }
@@ -43,7 +43,7 @@ const AdminPage = () => {
     try {
       const authToken = localStorage.getItem("token");
       await axios
-        .delete(`http://localhost:7000/admin/deleteadmin/?_id=${_id}`,
+        .delete(`http://localhost:7000/admin/superadmin/deleteadmin/?_id=${_id}`,
           {
               headers: { Authorization: `Bearer ${authToken}` }
             }

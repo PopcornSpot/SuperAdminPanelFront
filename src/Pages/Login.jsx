@@ -27,7 +27,6 @@ const LoginPage = () => {
         .post("http://localhost:7000/superadmin/login", formData)
         .then((res) => {
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("adminId",res.data.findEmail._id)
           toast.success(res.data.Message);
           setFormData(initialState);
           navigate("/home");
