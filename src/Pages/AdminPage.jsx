@@ -12,7 +12,7 @@ const AdminPage = () => {
       const authToken = localStorage.getItem("token");
       await axios
         .get("http://localhost:7000/admin/superadmin/alladmin",
-          {
+           {
               headers: { Authorization: `Bearer ${authToken}` }
             }
         )

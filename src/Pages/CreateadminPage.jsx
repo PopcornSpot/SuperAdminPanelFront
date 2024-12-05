@@ -53,7 +53,6 @@ const fetchAdminForUpdate = async (_id,setForm) => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const authToken = localStorage.getItem("token");
       console.log("token",authToken);
