@@ -41,13 +41,13 @@ const TheaterPage = () => {
     <>
     <SidebarComponent/>
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Theaters</h1>
+    <div className="p-6 bg-gray-900 min-h-screen">
+      <h1 className="text-2xl font-bold text-gray-200 mb-4">Theaters</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {theaters.map((theater) => (
           <div
             key={theater.id}
-            className="bg-white shadow rounded-lg overflow-hidden border border-gray-200"
+            className="bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-700"
           >
             <img
               src={theater.image}
@@ -55,13 +55,13 @@ const TheaterPage = () => {
               className="w-full h-40 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2 className="text-lg font-semibold text-gray-300">
                 {theater.name}
               </h2>
-              <p className="text-gray-600">Location: {theater.location}</p>
-              <p className="text-gray-600">Screens: {theater.screens}</p>
-              <p className="text-gray-600">Amenities:</p>
-              <ul className="list-disc list-inside text-gray-600">
+              <p className="text-gray-300">Location: {theater.location}</p>
+              <p className="text-gray-300">Screens: {theater.screens}</p>
+              <p className="text-gray-300">Amenities:</p>
+              <ul className="list-disc list-inside text-gray-300">
                 {theater.amenities.map((amenity, index) => (
                   <li key={index}>{amenity}</li>
                 ))}

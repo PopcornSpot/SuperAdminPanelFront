@@ -58,13 +58,13 @@ const MoviesPage = () => {
     <>
     <SidebarComponent/>
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Movies</h1>
+    <div className="p-6 bg-gray-900 min-h-screen">
+      <h1 className="text-2xl font-bold text-gray-100 mb-4">Movies</h1>
       <div className="grid grid-cols-1 sm:max-lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="bg-white shadow rounded-lg overflow-hidden border border-gray-200"
+            className="bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-700"
           >
             <img
               src={movie.image}
@@ -72,12 +72,12 @@ const MoviesPage = () => {
               className="w-full h-56 object-center"
             />
             <div className="p-4">
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2 className="text-lg font-semibold text-gray-200">
                 {movie.title}
               </h2>
-              <p className="text-gray-600">Genre: {movie.genre}</p>
-              <p className="text-gray-600">Language: Tamil</p>
-              <p className="text-gray-600">Rating: {movie.rating}</p>
+              <p className="text-gray-300">Genre: {movie.genre}</p>
+              <p className="text-gray-300">Language: Tamil</p>
+              <p className="text-gray-300">Rating: {movie.rating}</p>
               
               
             </div>

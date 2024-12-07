@@ -67,13 +67,13 @@ const AdminPage = () => {
     <>
     <SidebarComponent/>
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Theaters</h1>
+    <div className="p-6 bg-gray-900 min-h-screen">
+      <h1 className="text-2xl font-bold text-gray-200 mb-4">Theaters</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {Admin.map((admin) => (
           <div
             key={admin.id}
-            className="bg-white shadow rounded-lg overflow-hidden border border-gray-200 hover:shadow-sm hover:translate-y-1 transition-all hover:shadow-gray-500"
+            className="bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-900 hover:shadow-sm hover:translate-y-1 transition-all hover:shadow-gray-500"
           >
             <img
               src={Image}
@@ -81,16 +81,16 @@ const AdminPage = () => {
               className="w-full h-40 object-cover"
             />
             <div className="p-4 flex items-start flex-col gap-1">
-              <h2 className="text-lg font-semibold text-gray-800 w-full text-center">
+              <h2 className="text-lg font-semibold text-gray-100 w-full text-center">
                 {admin.adminName}
               </h2>
-              <p className="text-gray-600">Theatre Name: {admin.theatreName}</p>
-              <p className="text-gray-600">Location: {admin.email}</p>
-              <p className="text-gray-600">Screens: {admin.mobileNumber}</p>
-              <p className="text-gray-600">Location: {admin.theatreID}</p>
-              <p className="text-gray-600">Screens: {admin.noOfTheatres}</p>
-              <p className="text-gray-600">Location: {admin.location}</p>
-              <p className="text-gray-600">Screens: {admin.pincode}</p>
+              <p className="text-gray-300">Theatre Name: {admin.theatreName}</p>
+              <p className="text-gray-300">Location: {admin.email}</p>
+              <p className="text-gray-300">Screens: {admin.mobileNumber}</p>
+              <p className="text-gray-300">Location: {admin.theatreID}</p>
+              <p className="text-gray-300">Screens: {admin.noOfTheatres}</p>
+              <p className="text-gray-300">Location: {admin.location}</p>
+              <p className="text-gray-300">Screens: {admin.pincode}</p>
              
               <div className="w-full h-full flex justify-evenly items-center">
               <Link to={`/updateadmin/${admin._id}`} >

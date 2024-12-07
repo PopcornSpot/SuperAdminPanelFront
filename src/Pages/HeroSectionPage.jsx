@@ -24,7 +24,7 @@ const HeroSection = () => {
     <>
     <SidebarComponent/>
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
-    <div className={`relative w-full h-screen bg-gray-100 overflow-hidden `}>
+    <div className={`relative w-full h-screen bg-gray-900 overflow-hidden `}>
       <div
         className={`absolute inset-0 flex transition-transform duration-70`}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

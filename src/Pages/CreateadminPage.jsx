@@ -114,20 +114,20 @@ const fetchAdminForUpdate = async (_id,setForm) => {
     <>
     <SidebarComponent/>
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8 w-full">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center py-8 w-full">
       <div className="w-full mx-2 max-w-4xl">
-        <div className="bg-white p-4 rounded-t-lg shadow-md">
-          <h1 className="text-2xl font-bold text-gray-800">Create Admin</h1>
+        <div className="bg-gray-800 p-4 rounded-t-lg shadow-md">
+          <h1 className="text-2xl font-bold text-gray-100">Create Admin</h1>
         </div>
 
-        <div className="bg-white p-8 rounded-b-lg shadow-lg">
+        <div className="bg-gray-800 p-8 rounded-b-lg shadow-lg">
           <form onSubmit={handleOnSubmit} onReset={handleReset}
            className="space-y-6 w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label
                   htmlFor="adminName"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Name*
                 </label>
@@ -138,7 +138,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.adminName}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Admin Name"
                 />
               </div>
@@ -146,7 +146,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="mobileNumber"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Mobile No.*
                 </label>
@@ -157,7 +157,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.mobileNumber}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Admin Mobile Number"
                 />
               </div>
@@ -165,7 +165,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Email*
                 </label>
@@ -176,7 +176,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.email}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Admin Email"
                 />
               </div>
@@ -184,7 +184,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="noOfTheatres"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                  Theatres*
                 </label>
@@ -195,7 +195,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.noOfTheatres}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Number of Theatres"
                 />
               </div>
@@ -203,7 +203,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="theatreName"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Theatre Name*
                 </label>
@@ -214,7 +214,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.theatreName}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Theatre Name"
                 />
               </div>
@@ -222,7 +222,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="theatreID"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Theatre ID*
                 </label>
@@ -233,7 +233,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.theatreID}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Theatre ID"
                 />
                 {/* {errors.pincode && (
@@ -245,7 +245,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="location"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Location*
                 </label>
@@ -256,7 +256,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.location}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Theatre Location"
                 />
               </div>
@@ -265,7 +265,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
               <div>
                 <label
                   htmlFor="pincode"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-300"
                 >
                   Pincode*
                 </label>
