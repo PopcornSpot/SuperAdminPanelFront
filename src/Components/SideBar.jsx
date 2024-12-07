@@ -6,8 +6,9 @@ import { GiTheater } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { MdReportProblem } from "react-icons/md";
-import { IoMenu, IoSearch } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 import { BiSolidLogOut } from "react-icons/bi";
+import logo from "../assets/logo.png"
 
 const SidebarComponent = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const SidebarComponent = () => {
   // console.log("Current Path:", location.pathname);
 
   const SidebarDetail = [
-    { value: "Search", icon: <IoSearch />, path: "/search" },
+
     { value: "Overview", icon: <FaTachometerAlt />, path: "/home" },
     { value: "Create Admin", icon: <RiAdminFill />, path: "/createadmin" },
     { value: "Admins", icon: <RiAdminFill />, path: "/admin" },
@@ -38,28 +39,27 @@ const SidebarComponent = () => {
     <>
       <div className="w-full sm:hidden">
         <div
-          className={`w-full h-16 px-4  bg-white  shadow-lg shadow-black flex justify-between items-center gap-5`}
+          className={`w-full h-16 px-4  bg-gray-800  shadow-lg shadow-black flex justify-between items-center gap-5`}
         >
-          <IoMenu onClick={""} className="text-[20px] cursor-pointer" />
-          <img src="" alt="" className="h-10 w-28" />
+          <IoMenu onClick={""} className="text-[20px] cursor-pointer text-orange-400" />
+          <img src={logo} alt="" className="h-10 w-28" />
         </div>
       </div>
       <div className="flex h-full relative">
         <div className="fixed top-0 left-0 h-full w-52 bg-gray-800 max-sm:hidden text-white">
-          <div className="w-52 xl:w-60 h-screen bg-white text-black">
-            <div className="p-4 text-2xl font-bold h-20 flex items-center justify-center shadow-sm">
-              PopcornSpot
+          <div className="w-52 xl:w-60 h-screen bg-gray-800">
+            <div className="p-4 text-2xl font-bold h-[15%] flex items-center justify-center shadow-sm ">
+              <img src={logo} alt="logo" />
             </div>
             <ul className="mt-4 space-y-2 shadow-sm">
               {SidebarDetail.map((item, index) => (
                 <li key={index}>
                   <Link
                     to={item.path}
-                    className={`flex items-center p-3 text-sm font-medium transition-colors rounded-md ${
-                      location.pathname === item.path
-                        ? "bg-gray-700 text-white"
-                        : "hover:bg-gray-700 hover:text-white"
-                    }`}
+                    className={`flex items-center p-3 text-sm font-medium transition-colors rounded-md ${location.pathname === item.path
+                        ? "bg-orange-400 text-white"
+                        : "hover:bg-orange-400 hover:text-white"
+                      }`}
                   >
                     <span className="mr-3 text-lg">{item.icon}</span>
                     {item.value}
