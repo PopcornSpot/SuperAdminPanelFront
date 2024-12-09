@@ -9,7 +9,7 @@ const ReportPage = () => {
       date: "2024-11-01",
       generatedBy: "Admin User",
       status: "Completed",
-      actions: "Download",
+      actions: "View",
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const ReportPage = () => {
       date: "2024-11-05",
       generatedBy: "Super Admin",
       status: "Completed",
-      actions: "Download",
+      actions: "View",
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ const ReportPage = () => {
       date: "2024-11-10",
       generatedBy: "Admin User",
       status: "Pending",
-      actions: "Generate",
+      actions: "View",
     },
     {
       id: 4,
@@ -33,7 +33,7 @@ const ReportPage = () => {
       date: "2024-11-12",
       generatedBy: "Admin User",
       status: "Completed",
-      actions: "Download",
+      actions: "View",
     },
   ];
 
@@ -69,7 +69,7 @@ const ReportPage = () => {
 
 
         <button className="bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-500">
-          Download All Reports
+          view All Reports
         </button>
       </div>
 

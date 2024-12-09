@@ -85,7 +85,7 @@ const AdminPage = () => {
                 {admin.adminName}
               </h2>
               <p className="text-gray-300">Theatre Name: {admin.theatreName}</p>
-              <p className="text-gray-300">Location: {admin.email}</p>
+              <p className="text-gray-300">Email: {admin.email}</p>
               <p className="text-gray-300">Screens: {admin.mobileNumber}</p>
               <p className="text-gray-300">Location: {admin.theatreID}</p>
               <p className="text-gray-300">Screens: {admin.noOfTheatres}</p>
