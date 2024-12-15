@@ -20,51 +20,19 @@ const RouterComponent = () => {
       <Routes>
         <Route index element={<LoginPage />} />
         <Route path="/forgot" element={<ForgotPassword />} />
-        <Route path="/home" element={<PrivateRoute />}>
-          <Route index element={<OverviewPage />} />
+        <Route  element={<PrivateRoute />}>
+          <Route path="/home" element={<OverviewPage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/theater" element={<TheaterPage />} />
+          <Route path="/customer" element={<CustomerPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/report" element={<ReportPage />} /> 
+          <Route path="/herosection" element={<HeroSection />} />
+          <Route path="/createadmin" element={<CreateAdmin />} />
+          <Route path="/admin" element={<AdminPage/>} />
+          <Route path="/updateadmin/:_id" element={<CreateAdmin/>} />
+          <Route path="/updateprofile/:_id" element={<EditProfile/>} />
         </Route>
-
-        <Route path="/movies" element={<PrivateRoute />}>
-        <Route index element={<MoviesPage />} />
-        </Route>
-
-        <Route path="/theater" element={<PrivateRoute />}>
-        <Route index element={<TheaterPage />} /> 
-        </Route>
-
-        <Route path="/customer" element={<PrivateRoute />}>
-        <Route index element={<CustomerPage />} />
-        </Route>
-
-        <Route path="/profile" element={<PrivateRoute />}>
-        <Route index element={<ProfilePage />} />
-        </Route>
-
-        <Route path="/report" element={<PrivateRoute />}>
-        <Route index element={<ReportPage />} />
-        </Route>
-
-        <Route path="/herosection" element={<PrivateRoute />}>
-        <Route index element={<HeroSection />} />
-        </Route>
-
-        <Route path="/createadmin" element={<PrivateRoute />}>
-        <Route index element={<CreateAdmin />} />
-        </Route>
-
-        <Route path="/admin" element={<PrivateRoute />}>
-        <Route index element={<AdminPage/>} />
-        </Route>
-  
-        <Route path="/updateadmin/:_id" element={<PrivateRoute />}>
-        <Route index element={<CreateAdmin/>} />
-        </Route>
-
-        <Route path="/updateprofile/:_id" element={<PrivateRoute />}>
-        <Route index element={<EditProfile/>} />
-        </Route>
-
-
       </Routes>
     </>
   );
