@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SidebarComponent from "../Components/Sidebar";
-import Image from "../assets/Login.jpg"
+import Image from "../assets/Adminpng.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -75,22 +75,24 @@ const AdminPage = () => {
             key={admin.id}
             className="bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-900 hover:shadow-sm hover:translate-y-1 transition-all hover:shadow-gray-500"
           >
-            <img
+           <div className="w-full h-40 bg-white">
+           <img
               src={Image}
               alt="AdminImage"
-              className="w-full h-40 object-cover"
+              className="w-full h-40 object-scale-down"
             />
+           </div>
             <div className="p-4 flex items-start flex-col gap-1">
               <h2 className="text-lg font-semibold text-gray-100 w-full text-center">
                 {admin.adminName}
               </h2>
               <p className="text-gray-300">Theatre Name: {admin.theatreName}</p>
               <p className="text-gray-300">Email: {admin.email}</p>
-              <p className="text-gray-300">Screens: {admin.mobileNumber}</p>
+              <p className="text-gray-300">Mobile Number: {admin.mobileNumber}</p>
               <p className="text-gray-300">Location: {admin.theatreID}</p>
-              <p className="text-gray-300">Screens: {admin.noOfTheatres}</p>
+              <p className="text-gray-300">Theatres: {admin.noOfTheatres}</p>
               <p className="text-gray-300">Location: {admin.location}</p>
-              <p className="text-gray-300">Screens: {admin.pincode}</p>
+              <p className="text-gray-300">Pincode: {admin.pincode}</p>
              
               <div className="w-full h-full flex justify-evenly items-center">
               <Link to={`/updateadmin/${admin._id}`} >

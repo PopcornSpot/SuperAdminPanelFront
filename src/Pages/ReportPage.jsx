@@ -1,119 +1,220 @@
-import React, { useState } from "react";
-import SidebarComponent from "../Components/Sidebar"
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import SidebarComponent from "../Components/Sidebar";
+
+
+const fetchAllReports = async (setReports) => {
+  try {
+    const authToken = localStorage.getItem("token");
+    await axios
+      .get(`http://localhost:7000/report/superadmin/getallreports`,
+        {
+          headers: { Authorization: `Bearer ${authToken}` }
+        }
+      )
+      .then((res) => {
+        toast.error(res.data.Error);
+        const allreports =res.data.allReports
+        const filteredReports = allreports.filter((report) => report.role == "admin");
+        setReports(filteredReports);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.Message)
+      });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
+
+
+
 
 const ReportPage = () => {
-  const reports = [
-    {
-      id: 1,
-      title: "User Activity Report",
-      date: "2024-11-01",
-      generatedBy: "Admin User",
-      status: "Completed",
-      actions: "View",
-    },
-    {
-      id: 2,
-      title: "Sales Report",
-      date: "2024-11-05",
-      generatedBy: "Super Admin",
-      status: "Completed",
-      actions: "View",
-    },
-    {
-      id: 3,
-      title: "Ticket Sales Report",
-      date: "2024-11-10",
-      generatedBy: "Admin User",
-      status: "Pending",
-      actions: "View",
-    },
-    {
-      id: 4,
-      title: "Revenue Report",
-      date: "2024-11-12",
-      generatedBy: "Admin User",
-      status: "Completed",
-      actions: "View",
-    },
-  ];
+  const [reports,setReports] = useState([]);
+  const [reportData,setReportData] = useState({});
+  const [viewmode,setViewmode]=useState(false)
+  const authToken = localStorage.getItem("token");
+
+  const handleStatusChange =async (_id,name) => {
+    alert(`View ${name} Report`);
+    try {
+      
+      await axios
+        .get(`http://localhost:7000/report/superadmin/getsinglereport/?_id=${_id}`, {
+          headers: { Authorization: `Bearer ${authToken}` },
+        })
+        .then((res) => { 
+          // toast.success(res.data.Message);
+          toast.error(res.data.Error);
+          setReportData(res.data.reports);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.Message);
+        });
+    } catch (error) {
+      console.log(error.message);
+    }
+    setViewmode(true)
+
+  };
+
+  const updateStatus = async  (_id,name) => {
+    alert(`Update ${name} Report`);
+     const data ={
+      ...reportData,
+      status:'Resolved' 
+  }
+    try {
+      await axios
+        .put(
+          `http://localhost:7000/report/superadmin/updatereport/?_id=${_id}`,
+          data,
+          {
+              headers: { Authorization: `Bearer ${authToken}` }
+          }
+        )
+        .then((res) => {
+          console.log(res.data); 
+          toast.success(res.data.Message); 
+          toast.error(res.data.Error);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.Message);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    setViewmode(false);
+    fetchAllReports(setReports) 
+  };
 
 
-  const [statusFilter, setStatusFilter] = useState("All");
-
-
-  const filteredReports =
-    statusFilter === "All"
-      ? reports
-      : reports.filter((report) => report.status === statusFilter);
+  useEffect (()=>{
+      fetchAllReports(setReports)
+  },[])
 
   return (
     <>
     <SidebarComponent/>
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
-    <div className="p-6 bg-gray-900 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-200 mb-6">Reports</h1>
-
-      <div className="mb-6 flex justify-between items-center">
-        <div>
-          <h2 className="text-lg font-semibold text-gray-300">Filter by Status</h2>
-          <select
-            className="mt-2 p-2 border border-gray-700 rounded bg-gray-800 text-gray-300"
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-          >
-            <option value="All">All</option>
-            <option value="Completed">Completed</option>
-            <option value="Pending">Pending</option>
-          </select>
-        </div>
-
-
-        <button className="bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-500">
-          view All Reports
-        </button>
-      </div>
-
-
-      <div className="overflow-x-auto bg-gray-800 shadow rounded-lg">
-        <table className="w-full table-auto">
-          <thead className="bg-gray-800">
-            <tr>
-              <th className="py-3 px-4 text-left text-gray-300">Report Title</th>
-              <th className="py-3 px-4 text-left text-gray-300">Date</th>
-              <th className="py-3 px-4 text-left text-gray-300">Generated By</th>
-              <th className="py-3 px-4 text-left text-gray-300">Status</th>
-              <th className="py-3 px-4 text-left text-gray-300">Actions</th>
+    <div className="p-6 bg-gradient-to-b relative  from-gray-800 to-gray-900 min-h-screen">
+      <div className="max-w-6xl mx-auto bg-gray-800 p-8 rounded-xl shadow-xl">
+     <div className=" flex items-start justify-between w-full h-full">
+     <h1 className="text-3xl font-semibold text-gray-200 mb-6">Report Page</h1>
+     </div>
+      <div className="overflow-x-auto rounded-lg shadow-md">
+        <table className="w-full table-auto text-sm text-gray-300 border-collapse">
+          <thead>
+            <tr className="bg-gray-700 text-left">
+              <th className="p-4 text-sm font-medium">Report Title</th>
+              <th className="p-4 text-sm font-medium">Description</th>
+              <th className="p-4 text-sm font-medium">Status</th>
+              <th className="p-4 text-sm font-medium">Action</th>
             </tr>
           </thead>
           <tbody>
-            {filteredReports.map((report) => (
-              <tr key={report.id} className="border-b">
-                <td className="py-3 px-4 text-gray-300">{report.title}</td>
-                <td className="py-3 px-4 text-gray-300">{report.date}</td>
-                <td className="py-3 px-4 text-gray-300">{report.generatedBy}</td>
-                <td
-                  className={`py-3 px-4 text-gray-300 ${
-                    report.status === "Completed" ? "text-green-500" : "text-orange-400"
-                  }`}
-                >
-                  {report.status}
-                </td>
-                <td className="py-3 px-4">
-                  <button
-                    className={`py-2 px-4 rounded ${
-                      report.status === "Completed"
-                        ? "bg-green-500 text-white hover:bg-green-600"
-                        : "bg-orange-400 px-5 text-white hover:bg-orange-500"
+            {
+            reports.length!==0?
+            reports.map((report) => (
+              <tr
+                key={report._id}
+                className="border-t hover:bg-gray-700 transition-colors"
+              >
+                <td className="p-4">{report.subject}</td>
+                <td className="p-4">{report.message}</td>
+                <td className="p-4">
+                  <span
+                    className={`inline-block px-4 py-2 rounded-md font-medium text-sm ${
+                      report.status === "Pending"
+                        ? "bg-orange-400 text-black"
+                        : "bg-green-500 text-white"
                     }`}
                   >
-                    {report.actions}
+                    {report.status}
+                  </span>
+                </td>
+                <td className="p-4">
+                  <button 
+                    className="text-center w-24 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition duration-200"
+                    onClick={() => handleStatusChange(report._id,report.name)}
+                  >
+                    {report.status === "Pending" ? " View " : "Reopen"}
                   </button>
                 </td>
               </tr>
-            ))}
+            ))
+          :<p
+          className="px-2 py-5 w-full"
+          >No reports found</p>
+          }
           </tbody>
         </table>
       </div>
+      </div>
+   
+
+{
+   viewmode?
+    <>
+    <div className=" w-full absolute top-0 bottom-0 right-0 left-0 mx-auto bg-gray-800 p-8 rounded-xl shadow-xl flex justify-center items-start">
+    <div className="max-w-4xl mx-auto p-6 w-full bg-white shadow-md rounded-lg mt-10">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">Report Details</h2>
+
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Name:</label>
+        <p className="text-gray-600">{reportData.name || 'N/A'}</p>
+      </div>
+
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Email:</label>
+        <p className="text-gray-600">{reportData.email || 'N/A'}</p>
+      </div>
+
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Mobile Number:</label>
+        <p className="text-gray-600">{reportData.mobileNumber || 'N/A'}</p>
+      </div>
+
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Subject:</label>
+        <p className="text-gray-600">{reportData.subject || 'N/A'}</p>
+      </div>
+
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Message:</label>
+        <p className="text-gray-600">{reportData.message || 'N/A'}</p>
+      </div>
+      <div className="mb-4 flex gap-5">
+        {
+         reportData.status!=="Resolved"?
+         <button 
+        className="px-2 py-1 bg-gray-400 text-white"
+        onClick={() => updateStatus(reportData._id,reportData.name)}
+        >
+          Resolved
+        </button>
+        :
+        <></>
+
+        }
+        <button 
+        className="px-2 py-1 bg-gray-400 text-white"
+        onClick={()=>setViewmode(false)}
+        >
+          cancel
+        </button>
+      </div>
+    </div>
+    </div>
+    </>
+    :
+    <></>
+     }
     </div>
     </div>
     </>

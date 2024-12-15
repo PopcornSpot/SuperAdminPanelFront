@@ -1,9 +1,5 @@
 import React from "react";
 import { IoMenu, IoSearchSharp } from "react-icons/io5";
-// import Logo from "../../images/CC_logo3.png";
-import { IoMdNotifications } from "react-icons/io";
-import { FaUserCircle } from "react-icons/fa";
-// import { shadowColor} from "../Reusable Component/ColorSelector";
 
 const HeaderMain = () => {
 

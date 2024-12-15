@@ -1,41 +1,41 @@
-import React from "react";
-import SidebarComponent from "../Components/Sidebar";
+import React, { useEffect, useState } from "react";
+import SidebarComponent from "../Components/SideBar";
+import axios from "axios";
+import { toast } from "react-toastify";
+
 
 const TheaterPage = () => {
-  const theaters = [
-    {
-      id: 1,
-      name: "Cineplex Mall Theater",
-      location: "Pallavaram",
-      screens: 10,
-      amenities: ["IMAX", "3D",],
-      image: "https://res.cloudinary.com/purnesh/image/upload/w_1080,f_auto/untitled-11609146866114.jpg",
-    },
-    {
-      id: 2,
-      name: "Vidhya Cinemas",
-      location: "Tambaram",
-      screens: 7,
-      amenities: ["Dolby Atmos", "3D"],
-      image: "https://tamilagam.in/img/chennai-theatres.jpg",
-    },
-    {
-      id: 3,
-      name: "Sathyam Theaters",
-      location: "Tambaram",
-      screens: 5,
-      amenities: ["IMAX","4D"],
-      image: "https://cdn.dribbble.com/userupload/9446142/file/original-c7a2f12cc32d8a5d3f3cb0dde12ed49d.jpg",
-    },
-    {
-      id: 4,
-      name: "Vettri Cinema",
-      location: "Chrompet",
-      screens: 8,
-      amenities: ["IMAX", "Dolby Surround"],
-      image: "https://cdn3.ticketnew.com/partners/img/Murugan_Cinemas/2023/red.jpg",
-    },
-  ];
+  const [theatres, setTheatres] = useState([]);
+  const authToken = localStorage.getItem("token");
+
+  const fetchTheatre = async () => {
+    try {
+      await axios
+        .get("http://localhost:7000/theatre/superadmin/get",
+           {
+              headers: { Authorization: `Bearer ${authToken}` }
+            }
+        )
+        .then((res) => {
+          toast.error(res.data.Error)
+          toast.success(res.data.Message) 
+          setTheatres(res.data.theatres);
+
+        })
+        .catch((err) =>{
+          if (err.status === 401) {
+              return toast.error("Request to Login Again")
+                }
+          toast.error(err.response.data.Error)
+        });
+    } catch (error) {
+      toast.error(error.message)
+    }
+  };
+
+  useEffect(() => {
+    fetchTheatre();
+  }, []);
 
   return (
     <>
@@ -43,36 +43,31 @@ const TheaterPage = () => {
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
     <div className="p-6 bg-gray-900 min-h-screen">
       <h1 className="text-2xl font-bold text-gray-200 mb-4">Theaters</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {theaters.map((theater) => (
-          <div
-            key={theater.id}
-            className="bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-700"
-          >
-            <img
-              src={theater.image}
-              alt={theater.name}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-lg font-semibold text-gray-300">
-                {theater.name}
-              </h2>
-              <p className="text-gray-300">Location: {theater.location}</p>
-              <p className="text-gray-300">Screens: {theater.screens}</p>
-              <p className="text-gray-300">Amenities:</p>
-              <ul className="list-disc list-inside text-gray-300">
-                {theater.amenities.map((amenity, index) => (
-                  <li key={index}>{amenity}</li>
-                ))}
-              </ul>
-              <button className="mt-4 bg-orange-400 text-white py-2 px-4 rounded hover:bg-orange-500">
-                View Details
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {theatres.map((theatre) => (
+        <div
+          key={theatre._id}
+          className="bg-white border border-gray-300 rounded-lg shadow-md p-4 max-w-sm"
+        >
+          <img
+            src={"http://localhost:7000/upload/"+theatre.fileName || image }
+            alt={theatre.theatreName}
+            className="w-full h-40 object-cover rounded-t-lg mb-4"
+          />
+          <h2 className="text-lg font-semibold text-gray-800 mb-2">{theatre.theatreName}</h2>
+          <p className="text-sm text-gray-600"><strong>Address:</strong> {theatre.address}</p>
+          <p className="text-sm text-gray-600"><strong>City:</strong> {theatre.city}</p>
+          <p className="text-sm text-gray-600"><strong>State:</strong> {theatre.state}</p>
+          <p className="text-sm text-gray-600"><strong>Country:</strong> {theatre.country}</p>
+          <p className="text-sm text-gray-600"><strong>Zip Code:</strong> {theatre.zipCode}</p>
+          <p className="text-sm text-gray-600"><strong>Phone:</strong> {theatre.phone}</p>
+          <p className="text-sm text-gray-600"><strong>Email:</strong> {theatre.email}</p>
+          <p className="text-sm text-gray-600"><strong>No of Screens:</strong> {theatre.screens}</p>
+          <p className="text-sm text-gray-600"><strong>Screen Type:</strong> {theatre.screenType}</p>
+          <p className="text-sm text-gray-600"><strong>Facilities:</strong> {theatre.facilities.join(", ")}</p>
+        </div>
+      ))}
+    </div>
     </div>
     </div>
     </>

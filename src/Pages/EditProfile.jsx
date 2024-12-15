@@ -19,7 +19,7 @@ const fetchDetailsForUpdate = async (_id,setDetails) => {
         
       const authToken = localStorage.getItem("token");
       await axios
-        .get(`http://localhost:7000/superadmin/getsuperadmin/?_id=${_id}`,
+        .get(`http://localhost:7000/superadmin/getforupdate/?_id=${_id}`,
           {
             headers: { Authorization: `Bearer ${authToken}` }
           }

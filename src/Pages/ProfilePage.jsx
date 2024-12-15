@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 
 const SuperAdminProfilePage = () => {
+const [superAdmin, setSuperAdmin] = useState({});
  const permissions = ["Manage Customers", "Access Reports","Manage Admins", "Monitor Activity"]
 
 const stats ={
@@ -14,9 +15,6 @@ const stats ={
   activeUsers: 500,
   totalearnings: 104705900,
 };
-
-
-  const [superAdmin, setSuperAdmin] = useState({});
 
   const getAdminDetails = async () => {
     try {
@@ -31,6 +29,8 @@ const stats ={
         )
         .then((res) => {
           toast.success(res.data.Message)
+          toast.error(res.data.Error)
+          console.log(res.data.superAdmin);
           setSuperAdmin(res.data.superAdmin)
         })
         .catch((err) => {
