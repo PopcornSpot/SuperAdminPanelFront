@@ -1,13 +1,14 @@
 import React from "react";
+import { FaUsers, FaTicketAlt, FaMoneyBillAlt, FaFilm } from "react-icons/fa";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, ResponsiveContainer } from "recharts";
 import SidebarComponent from "../Components/Sidebar";
 
 const OverviewPage = () => {
   const OverviewDetail = [
-    { title: "Total Users", value: "100", change: "+12%" },
-    { title: "Tickets Sold", value: "100", change: "+8%" },
-    { title: "Revenue", value: "RS-4000", change: "+15%" },
-    { title: "Movies", value: "5", change: "-2%" },
+    { title: "Total Users", value: "100", change: "+12%", icon: <FaUsers className="text-4xl text-blue-400" /> },
+    { title: "Tickets Sold", value: "100", change: "+8%", icon: <FaTicketAlt className="text-4xl text-yellow-400" /> },
+    { title: "Revenue", value: "RS-4000", change: "+15%", icon: <FaMoneyBillAlt className="text-4xl text-green-400" /> },
+    { title: "Movies", value: "5", change: "-2%", icon: <FaFilm className="text-4xl text-red-400" /> },
   ];
 
   const revenueData = [
@@ -29,7 +30,7 @@ const OverviewPage = () => {
   return (
     <>
       <SidebarComponent />
-      <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1">
+      <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
         <div className="p-6 bg-gray-900 w-full min-h-screen">
           <div className="mb-6">
             <h1 className="text-3xl font-bold text-gray-200">Dashboard Overview</h1>
@@ -38,8 +39,9 @@ const OverviewPage = () => {
             {OverviewDetail.map((value, index) => (
               <div
                 key={index}
-                className="h-[150px] w-[200px] flex items-center justify-center flex-col gap-3 bg-gray-800 shadow-md hover:bg-gray-700 hover:shadow-lg duration-150 rounded-lg cursor-pointer"
+                className="h-[200px] w-[250px] flex items-center justify-center flex-col gap-3 bg-gray-800 shadow-md hover:scale-105 hover:shadow-lg duration-150 rounded-lg cursor-pointer"
               >
+                <div className="mb-3">{value.icon}</div>
                 <h3 className="text-gray-400 text-sm font-medium">{value.title}</h3>
                 <p className="text-2xl font-bold text-gray-100">{value.value}</p>
                 <p

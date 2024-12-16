@@ -113,7 +113,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
   return (
     <>
     <SidebarComponent/>
-    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
     <div className="min-h-screen bg-gray-900 flex items-center justify-center py-8 w-full">
       <div className="w-full mx-2 max-w-4xl">
         <div className="bg-gray-800 p-4 rounded-t-lg shadow-md">

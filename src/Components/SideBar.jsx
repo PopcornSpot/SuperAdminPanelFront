@@ -63,7 +63,7 @@ const SidebarComponent = () => {
                       ? "bg-orange-400 text-white"
                       : "hover:bg-orange-400 hover:text-white"
                   }`}
-                  onClick={() => setIsSidebarOpen(false)} // Close sidebar on link click
+                  onClick={() => setIsSidebarOpen(false)} 
                 >
                   <span className="mr-3 text-lg">{item.icon}</span>
                   {item.value}
@@ -86,7 +86,7 @@ const SidebarComponent = () => {
         </div>
 
         {/* Desktop Sidebar */}
-        <div className="hidden sm:block fixed top-0 left-0 h-full w-52 bg-gray-800 text-white">
+        <div className="hidden sm:block fixed top-0 left-0 h-full w-64 bg-gray-800 text-white">
           <div className="p-4 text-center">
             <img src={logo} alt="logo" className="w-32 mx-auto" />
           </div>

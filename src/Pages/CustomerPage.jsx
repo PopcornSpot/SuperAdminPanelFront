@@ -40,7 +40,7 @@ const CustomerPage = () => {
   return (
     <>
     <SidebarComponent/>
-    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
     <div className="p-6 bg-gray-900 min-h-screen">
       <h1 className="text-2xl font-bold text-gray-200 mb-4">Customers</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

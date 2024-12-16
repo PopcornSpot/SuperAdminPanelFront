@@ -96,7 +96,7 @@ const MoviesPage = () => {
   return (
     <>
     <SidebarComponent/>
-    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
     <div className="p-8 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <div className="text-4xl font-bold text-gray-100 mb-10 flex justify-between items-center">

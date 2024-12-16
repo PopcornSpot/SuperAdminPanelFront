@@ -23,7 +23,7 @@ const HeroSection = () => {
   return (
     <>
     <SidebarComponent/>
-    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
     <div className={`relative w-full h-screen bg-gray-900 overflow-hidden `}>
       <div
         className={`absolute inset-0 flex transition-transform duration-70`}

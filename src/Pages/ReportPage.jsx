@@ -101,7 +101,7 @@ const ReportPage = () => {
   return (
     <>
     <SidebarComponent/>
-    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 ">
+    <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
     <div className="p-6 bg-gradient-to-b relative  from-gray-800 to-gray-900 min-h-screen">
       <div className="max-w-6xl mx-auto bg-gray-800 p-8 rounded-xl shadow-xl">
      <div className=" flex items-start justify-between w-full h-full">
