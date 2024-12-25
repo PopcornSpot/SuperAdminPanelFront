@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FaEdit, FaTrashAlt, FaPlus } from "react-icons/fa";
+import { FaTrashAlt} from "react-icons/fa";
 import { MdPublish } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import SidebarComponent from "../Components/Sidebar";
+import SidebarComponent from "../Components/SideBar";
 
 const MoviesPage = () => {
   const authToken = localStorage.getItem("token");

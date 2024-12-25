@@ -24,7 +24,7 @@ const SidebarComponent = () => {
     { value: "Hero Section", icon: <FaImages />, path: "/herosection" },
     { value: "Profile", icon: <CgProfile />, path: "/profile" },
     { value: "Reports", icon: <MdReportProblem />, path: "/report" },
-  ];
+  ]; 
 
   const handleLogout = () => {
     localStorage.clear();
@@ -33,7 +33,6 @@ const SidebarComponent = () => {
 
   return (
     <>
-      {/* Navbar */}
       <div className="fixed top-0 left-0 w-full h-16 bg-gray-800 shadow-md flex items-center justify-between px-4 z-50 sm:hidden">
         <img src={logo} alt="logo" className="h-10 w-28" />
         <IoMenu
@@ -42,9 +41,7 @@ const SidebarComponent = () => {
         />
       </div>
 
-      {/* Sidebar */}
       <div className="flex">
-        {/* Mobile Sidebar */}
         <div
           className={`fixed top-0 left-0 h-full w-52 bg-gray-800 text-white transform transition-transform duration-300 z-40 sm:hidden ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -75,7 +72,7 @@ const SidebarComponent = () => {
                 handleLogout();
                 setIsSidebarOpen(false);
               }}
-              className="flex items-center cursor-pointer p-3 text-sm font-medium transition-colors rounded-md hover:bg-gray-700 hover:text-white"
+              className="flex items-center cursor-pointer p-3 text-sm font-medium transition-colors rounded-md hover:bg-orange-400 hover:text-white"
             >
               <span className="mr-3 text-lg">
                 <BiSolidLogOut />
@@ -85,7 +82,6 @@ const SidebarComponent = () => {
           </ul>
         </div>
 
-        {/* Desktop Sidebar */}
         <div className="hidden sm:block fixed top-0 left-0 h-full w-64 bg-gray-800 text-white">
           <div className="p-4 text-center">
             <img src={logo} alt="logo" className="w-32 mx-auto" />
@@ -108,7 +104,7 @@ const SidebarComponent = () => {
             ))}
             <li
               onClick={handleLogout}
-              className="flex items-center cursor-pointer p-3 text-sm font-medium transition-colors rounded-md hover:bg-gray-700 hover:text-white"
+              className="flex items-center cursor-pointer p-3 text-sm font-medium transition-colors rounded-md hover:bg-orange-400 hover:text-white"
             >
               <span className="mr-3 text-lg">
                 <BiSolidLogOut />
@@ -119,7 +115,6 @@ const SidebarComponent = () => {
         </div>
       </div>
 
-      {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 sm:hidden"

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import SidebarComponent from "../Components/Sidebar";
+import SidebarComponent from "../Components/SideBar";
 import React, { useEffect, useState } from "react";
 
 
@@ -24,8 +24,7 @@ const fetchDetailsForUpdate = async (_id,setDetails) => {
             headers: { Authorization: `Bearer ${authToken}` }
           }
         )
-        .then((res) => {
-          toast.success(res.data.Message); 
+        .then((res) => { 
           setDetails(res.data.superAdmin);
         })
         .catch((err) => {

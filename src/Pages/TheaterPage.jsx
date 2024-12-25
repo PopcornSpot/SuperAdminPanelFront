@@ -45,7 +45,7 @@ const TheaterPage = () => {
             {theatres.map((theatre) => (
               <div
                 key={theatre._id}
-                className="bg-gradient-to-b from-gray-800 to-gray-700 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105"
+                className="bg-gradient-to-b from-gray-800 to-gray-700 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1"
               >
                 <img
                   src={"http://localhost:7000/upload/" + theatre.fileName}

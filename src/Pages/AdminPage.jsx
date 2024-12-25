@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SidebarComponent from "../Components/Sidebar";
+import SidebarComponent from "../Components/SideBar";
 import Image from "../assets/Adminpng.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -17,7 +17,6 @@ const AdminPage = () => {
             }
         )
         .then((res) => {
-          toast.success(res.data.Message)
           toast.error(res.data.Error)
           setAdmin(res.data.allAdmins);
 
