@@ -1,4 +1,3 @@
-//Login
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -45,52 +44,57 @@ const LoginPage = () => {
   };
 
   return (
-    <div
-      className={`min-h-screen flex items-center justify-center bg-gray-100`}
-    >
-      <div className={`bg-white p-6 rounded-lg shadow-lg w-full max-w-md`}>
-        <h1 className={`text-2xl font-bold text-center mb-4`}>Login</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-700 to-gray-900">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-6 text-orange-400">
+          Login
+        </h1>
         <form onSubmit={handleOnSubmit} onReset={handleReset}>
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Email</label>
+          <div className="mb-5">
+            <label className="block text-gray-300 font-semibold mb-2">
+              Email
+            </label>
             <input
               required
               name="email"
               type="email"
               value={formData.email}
               onChange={handleOnChange}
-              className={`w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-orange-400`}
+              className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 placeholder-gray-500"
               placeholder="Enter your email"
             />
           </div>
 
-          <div className="mb-4">
-            <div>
-              <label className={`block text-gray-700 mb-2`}>Password</label>
-            </div>
-
+          <div className="mb-5">
+            <label className="block text-gray-300 font-semibold mb-2">
+              Password
+            </label>
             <input
-            required
+              required
               type="password"
               name="password"
               value={formData.password}
               onChange={handleOnChange}
-              className={`w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-orange-400`}
+              className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 placeholder-gray-500"
               placeholder="Enter your password"
             />
           </div>
 
           <button
             type="submit"
-            className={`w-full bg-orange-400 text-white py-2 rounded-lg hover:bg-orange-600`}
+            className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 focus:ring-2 focus:ring-orange-400 focus:outline-none transition-all duration-300"
           >
             Login
           </button>
         </form>
-        <p className={`text-center text-gray-600 mt-4`}>
-          <Link to={"/forgot"}>
-            Forgot Password?
-            <span className={`text-blue-500 underline`}>Click Here</span>
+
+        <p className="text-center text-gray-400 mt-6">
+          Forgot your password?{" "}
+          <Link
+            to={"/forgot"}
+            className="text-orange-400 font-semibold underline hover:text-orange-500"
+          >
+            Click here
           </Link>
         </p>
       </div>

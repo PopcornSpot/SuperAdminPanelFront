@@ -282,13 +282,13 @@ const fetchAdminForUpdate = async (_id,setForm) => {
             <div className="mt-6 flex justify-between">
               <button
                 type="submit"
-                className="px-6 py-2 bg-orange-400 text-white rounded hover:bg-orange-500"
+                className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
               >
                  {adminEdit? "Update" : "Submit"}
               </button>
               <button
                 type="reset"
-                className="px-6 py-2 bg-orange-400 text-white rounded hover:bg-orange-500"
+                className="px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600"
               >
                 Reset
               </button>
