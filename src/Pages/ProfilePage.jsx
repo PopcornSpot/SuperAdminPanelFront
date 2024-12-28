@@ -5,6 +5,7 @@ import SidebarComponent from "../Components/SideBar";
 import AdminImage from "../assets/AdminImage.jpg";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { FaEdit, FaLock } from 'react-icons/fa';
 
 const SuperAdminProfilePage = () => {
   const [superAdmin, setSuperAdmin] = useState({});
@@ -133,13 +134,15 @@ const SuperAdminProfilePage = () => {
           <div className="mt-8">
             <h2 className="text-xl font-bold text-gray-200 mb-4">Actions</h2>
             <div className="flex space-x-4">
-              <Link to={`/updateprofile/${superAdmin._id}`}>
-                <button className="bg-orange-400 text-white py-2 px-4 rounded hover:scale-105 transition-all hover:ease-in-out hover:bg-orange-500">
+              <Link to={"/profile"}>
+                <button className="bg-blue-500 flex items-center justify-center text-white py-2 px-4 rounded hover:scale-105 transition-all hover:ease-in-out hover:bg-blue-600">
+                  <FaEdit className="mr-2" /> 
                   Edit Profile
                 </button>
               </Link>
               <Link to={"/forgot"}>
-                <button className="bg-orange-400 text-white py-2 px-4 rounded hover:scale-105 transition-all hover:ease-in-out hover:bg-orange-500">
+                <button className="bg-red-500 flex items-center justify-center text-white py-2 px-4 rounded hover:scale-105 transition-all hover:ease-in-out hover:bg-red-600">
+                  <FaLock className="mr-2" /> 
                   Change Password
                 </button>
               </Link>
