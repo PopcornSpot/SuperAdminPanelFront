@@ -155,7 +155,7 @@ const EditProfile=()=>{
                       required
                       value={UpdateAdmin.mobileNumber}
                       onChange={handleOnChange}
-                      className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                      className="mt-1 no-spinner p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
                       placeholder="Enter Admin Mobile Number"
                     />
                   </div>

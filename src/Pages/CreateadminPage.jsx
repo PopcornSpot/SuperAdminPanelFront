@@ -89,7 +89,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
         });
     } 
     catch (error) {
-      // console.log(error.message);
+      console.log(error.message);
     }
   };
 
@@ -157,7 +157,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.mobileNumber}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 no-spinner p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Admin Mobile Number"
                 />
               </div>
@@ -195,7 +195,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   required
                   value={formData.noOfTheatres}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 no-spinner p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Number of Theatres"
                 />
               </div>
@@ -236,9 +236,6 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   className="mt-1 p-2 block w-full outline-none border border-none rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Theatre ID"
                 />
-                {/* {errors.pincode && (
-                  <p className="text-red-500 text-sm">{errors.theatreID}</p>
-                )} */}
               </div>
 
 
@@ -270,13 +267,13 @@ const fetchAdminForUpdate = async (_id,setForm) => {
                   Pincode*
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   id="pincode"
                   name="pincode"
                   required
                   value={formData.pincode}
                   onChange={handleOnChange}
-                  className="mt-1 p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
+                  className="mt-1 no-spinner p-2 block w-full outline-none border border-gray-300 rounded focus:ring-orange-400 focus:border-orange-400"
                   placeholder="Enter Theatre Pincode"
                 />
               </div>

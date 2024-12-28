@@ -68,11 +68,11 @@ const AdminPage = () => {
     <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
     <div className="p-6 bg-gray-900 min-h-screen">
       <h1 className="text-2xl font-bold text-gray-200 mb-4">Theaters</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
         {Admin.map((admin) => (
           <div
             key={admin.id}
-            className="bg-gray-800 shadow rounded-lg overflow-hidden border border-gray-900 hover:shadow-sm hover:translate-y-1 transition-all hover:shadow-gray-500"
+            className="bg-gray-800 shadow rounded-lg mt-6 overflow-hidden border border-gray-900 hover:shadow-sm hover:-translate-y-1 transition-all hover:shadow-gray-500"
           >
            <div className="w-full h-40 bg-white">
            <img
@@ -81,7 +81,7 @@ const AdminPage = () => {
               className="w-full h-40 object-scale-down"
             />
            </div>
-            <div className="p-4 flex items-start flex-col gap-1">
+            <div className="p-4 flex items-start justify-between min-h-[380px] flex-col gap-1">
               <h2 className="text-lg font-semibold text-gray-100 w-full text-center">
                 {admin.adminName}
               </h2>
