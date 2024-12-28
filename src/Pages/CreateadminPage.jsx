@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SidebarComponent from "../Components/Sidebar";
+import SidebarComponent from "../Components/SideBar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
