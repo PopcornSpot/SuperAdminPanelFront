@@ -41,57 +41,62 @@ const TheaterPage = () => {
           <h1 className="text-4xl font-extrabold text-white mb-6 pl-5">
             Theaters
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-            {theatres.map((theatre) => (
-              <div
-                key={theatre._id}
-                className="bg-gradient-to-b from-gray-800 to-gray-700 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1"
-              >
-                <img
-                  src={"http://localhost:7000/upload/" + theatre.fileName}
-                  alt={theatre.theatreName}
-                  className="w-full h-44 object-cover rounded-t-xl"
-                />
-                <div className="p-5">
-                  <h2 className="text-2xl font-semibold text-white mb-3">
-                    {theatre.theatreName}
-                  </h2>
-                  <div className="space-y-2 text-sm text-gray-300">
-                    <p>
-                      <strong>Address:</strong> {theatre.address}
-                    </p>
-                    <p>
-                      <strong>City:</strong> {theatre.city}
-                    </p>
-                    <p>
-                      <strong>State:</strong> {theatre.state}
-                    </p>
-                    <p>
-                      <strong>Country:</strong> {theatre.country}
-                    </p>
-                    <p>
-                      <strong>Zip Code:</strong> {theatre.zipCode}
-                    </p>
-                    <p>
-                      <strong>Phone:</strong> {theatre.phone}
-                    </p>
-                    <p>
-                      <strong>Email:</strong> {theatre.email}
-                    </p>
-                    <p>
-                      <strong>No of Screens:</strong> {theatre.screens}
-                    </p>
-                    <p>
-                      <strong>Screen Type:</strong> {theatre.screenType}
-                    </p>
-                    <p>
-                      <strong>Facilities:</strong>{" "}
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse border border-gray-600 text-gray-200">
+              <thead>
+                <tr className="bg-gray-700">
+                  <th className="border border-gray-600 px-4 py-2">Name</th>
+                  <th className="border border-gray-600 px-4 py-2">Address</th>
+                  <th className="border border-gray-600 px-4 py-2">City</th>
+                  <th className="border border-gray-600 px-4 py-2">State</th>
+                  <th className="border border-gray-600 px-4 py-2">Zip Code</th>
+                  <th className="border border-gray-600 px-4 py-2">Phone</th>
+                  <th className="border border-gray-600 px-4 py-2">Email</th>
+                  <th className="border border-gray-600 px-4 py-2">Screens</th>
+                  <th className="border border-gray-600 px-4 py-2">Screen Type</th>
+                  <th className="border border-gray-600 px-4 py-2">Facilities</th>
+                </tr>
+              </thead>
+              <tbody>
+                {theatres.map((theatre) => (
+                  <tr
+                    key={theatre._id}
+                    className="hover:bg-gray-800 transition duration-200"
+                  >
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.theatreName}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.address}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.city}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.state}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.zipCode}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.phone}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.email}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.screens}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
+                      {theatre.screenType}
+                    </td>
+                    <td className="border border-gray-600 px-4 py-2">
                       {theatre.facilities.join(", ")}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

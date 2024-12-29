@@ -144,7 +144,7 @@ const OverviewPage = () => {
       },
       {
         title: "Revenue",
-        value: `RS-${totalRevenue}`,
+        value: `Rs. ${totalRevenue}`,
         change: calculateChange(totalRevenue, previousMonthRevenue),
         icon: <FaMoneyBillAlt className="text-4xl text-green-400" />,
       },
