@@ -24,7 +24,7 @@ const ForgotPassword = () => {
 
     try {
       await axios
-        .put("http://localhost:7000/superadmin/resetpassword", formData)
+        .put("https://popcornspotbackend-production.up.railway.app/superadmin/resetpassword", formData)
         .then((res) => {
           toast.success(res.data.Message);
           setFormData(initialState);

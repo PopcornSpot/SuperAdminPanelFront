@@ -17,7 +17,7 @@ const SuperAdminProfilePage = () => {
   const fetchAdmin = async () => {
     try {
       const authToken = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:7000/admin/superadmin/alladmin", {
+      const response = await axios.get("https://popcornspotbackend-production.up.railway.app/admin/superadmin/alladmin", {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       setAdmin(response.data.allAdmins || []);
@@ -28,7 +28,7 @@ const SuperAdminProfilePage = () => {
 
   const fetchTotalUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:7000/user/getalluser");
+      const response = await axios.get("https://popcornspotbackend-production.up.railway.app/user/getalluser");
       setTotalUser(response.data.allUsers || []);
     } catch (error) {
       toast.error(error.response?.data?.Error || error.message);
@@ -37,7 +37,7 @@ const SuperAdminProfilePage = () => {
 
   const fetchTotalTickets = async () => {
     try {
-      const response = await axios.get("http://localhost:7000/payment/getalltickets");
+      const response = await axios.get("https://popcornspotbackend-production.up.railway.app/payment/getalltickets");
       setTotalTicket(response.data.allTickets || []);
     } catch (error) {
       toast.error(error.response?.data?.Error || error.message);
@@ -54,7 +54,7 @@ const SuperAdminProfilePage = () => {
     try {
       const authToken = localStorage.getItem("token");
       const _id = localStorage.getItem("adminId");
-      const response = await axios.get(`http://localhost:7000/superadmin/getsuperadmin/?_id=${_id}`, {
+      const response = await axios.get(`https://popcornspotbackend-production.up.railway.app/superadmin/getsuperadmin/?_id=${_id}`, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       setSuperAdmin(response.data.superAdmin || {});

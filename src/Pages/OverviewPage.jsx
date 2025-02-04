@@ -16,7 +16,7 @@ const OverviewPage = () => {
 
   const fetchTotalUsers = async () => {
     try {
-      await axios.get("http://localhost:7000/user/getalluser")
+      await axios.get("https://popcornspotbackend-production.up.railway.app/user/getalluser")
         .then((res) => {
           setTotalUser(res.data.allUsers);
         })
@@ -30,7 +30,7 @@ const OverviewPage = () => {
 
   const fetchTotalTickets = async () => {
     try {
-      await axios.get("http://localhost:7000/payment/getalltickets")
+      await axios.get("https://popcornspotbackend-production.up.railway.app/payment/getalltickets")
         .then((res) => {
           setTotalTicket(res.data.allTickets);
         })
@@ -44,7 +44,7 @@ const OverviewPage = () => {
 
   const fetchTotalMovies = async () => {
     try {
-      await axios.get("http://localhost:7000/movie/user/getallmovie")
+      await axios.get("https://popcornspotbackend-production.up.railway.app/movie/user/getallmovie")
         .then((res) => {
           setTotalMovie(res.data.findAllMovies);
         })

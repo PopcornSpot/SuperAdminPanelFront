@@ -19,7 +19,7 @@ const fetchDetailsForUpdate = async (_id,setDetails) => {
         
       const authToken = localStorage.getItem("token");
       await axios
-        .get(`http://localhost:7000/superadmin/getforupdate/?_id=${_id}`,
+        .get(`https://popcornspotbackend-production.up.railway.app/superadmin/getforupdate/?_id=${_id}`,
           {
             headers: { Authorization: `Bearer ${authToken}` }
           }
@@ -55,7 +55,7 @@ const EditProfile=()=>{
     
         try {
           const authToken = localStorage.getItem("token");
-          await axios.put(`http://localhost:7000/superadmin/updatesuperadmin/?_id=${_id}`, UpdateAdmin,
+          await axios.put(`https://popcornspotbackend-production.up.railway.app/superadmin/updatesuperadmin/?_id=${_id}`, UpdateAdmin,
             {
               headers: { Authorization: `Bearer ${authToken}` }
             }

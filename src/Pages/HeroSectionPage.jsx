@@ -12,7 +12,7 @@ const HeroSection = () => {
   const fetchBanner = async () => {
     try {
       await axios
-        .get("http://localhost:7000/banner/getallbanner",
+        .get("https://popcornspotbackend-production.up.railway.app/banner/getallbanner",
            {
               headers: { Authorization: `Bearer ${authToken}` }
             }
@@ -42,7 +42,7 @@ const HeroSection = () => {
     alert(`Delete : ${title}`);
     try {
       await axios
-        .delete(`http://localhost:7000/banner/deletebanner/?_id=${_id}`,
+        .delete(`https://popcornspotbackend-production.up.railway.app/banner/deletebanner/?_id=${_id}`,
           {
               headers: { Authorization: `Bearer ${authToken}` }
             }
@@ -81,7 +81,7 @@ const HeroSection = () => {
           className="border rounded shadow-md p-4 flex flex-col items-center"
         >
           <img
-            src={"http://localhost:7000/upload/"+card.fileName}
+            src={"https://popcornspotbackend-production.up.railway.app/upload/"+card.fileName}
             alt={card.title}
             className="w-full h-56 object-cover rounded"
           />

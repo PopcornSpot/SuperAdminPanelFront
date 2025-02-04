@@ -12,7 +12,7 @@ const CustomerPage = () => {
 
   const fetchAllUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:7000/user/getalluser");
+      const res = await axios.get("https://popcornspotbackend-production.up.railway.app/user/getalluser");
       setAllUser(res.data.allUsers);
     } catch (error) {
       toast.error(error.response?.data?.Error || error.message);
@@ -63,7 +63,7 @@ const CustomerPage = () => {
                   <tr key={user._id} className="hover:bg-gray-700">
                     <td className="p-2 border border-gray-600 text-center">
                       <img
-                        src={user.fileName ? `http://localhost:7000/upload/${user.fileName}` : customerImage}
+                        src={user.fileName ? `https://popcornspotbackend-production.up.railway.app/upload/${user.fileName}` : customerImage}
                         alt={user.userName}
                         className="w-10 h-10 object-cover rounded-full mx-auto"
                       />
@@ -99,7 +99,7 @@ const CustomerPage = () => {
               <button onClick={() => setSelectedUser(null)} className="text-white float-right">✖</button>
               <div className="text-center">
                 <img
-                  src={selectedUser.fileName ? `http://localhost:7000/upload/${selectedUser.fileName}` : customerImage}
+                  src={selectedUser.fileName ? `https://popcornspotbackend-production.up.railway.app/upload/${selectedUser.fileName}` : customerImage}
                   alt={selectedUser.userName}
                   className="w-32 h-32 object-cover rounded-full mx-auto mt-4"
                 />

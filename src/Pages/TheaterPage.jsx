@@ -12,7 +12,7 @@ const TheaterPage = () => {
 
   const fetchTheatre = async () => {
     try {
-      const res = await axios.get("http://localhost:7000/theatre/superadmin/get", {
+      const res = await axios.get("https://popcornspotbackend-production.up.railway.app/theatre/superadmin/get", {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       toast.success(res.data.Message);
@@ -70,7 +70,7 @@ const TheaterPage = () => {
                       <tr key={theatre._id} className="hover:bg-gray-800 transition duration-200">
                         <td className="p-2 border border-gray-600 text-center">
                           <img
-                            src={theatre.fileName ? `http://localhost:7000/upload/${theatre.fileName}` : "No Image"}
+                            src={theatre.fileName ? `https://popcornspotbackend-production.up.railway.app/upload/${theatre.fileName}` : "No Image"}
                             alt={theatre.theatreName}
                             className="w-10 h-10 object-cover rounded-full mx-auto"
                           />
@@ -104,7 +104,7 @@ const TheaterPage = () => {
             <button onClick={() => setSelectedTheatre(null)} className="text-white float-right">✖</button>
             <div className="text-left text-gray-200">
               <img
-                src={selectedTheatre.fileName ? `http://localhost:7000/upload/${selectedTheatre.fileName}` : "No Image"}
+                src={selectedTheatre.fileName ? `https://popcornspotbackend-production.up.railway.app/upload/${selectedTheatre.fileName}` : "No Image"}
                 alt={selectedTheatre.theatreName}
                 className="w-32 h-32 object-cover rounded-full mx-auto mt-4"
               />

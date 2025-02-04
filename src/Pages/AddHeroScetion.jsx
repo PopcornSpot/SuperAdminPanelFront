@@ -13,7 +13,7 @@ const fetchBannerForUpdate = async (_id,setBanner) => {
   try {
     const authToken = localStorage.getItem("token");
     await axios
-      .get(`http://localhost:7000/banner/getonebanner/?_id=${_id}`,
+      .get(`https://popcornspotbackend-production.up.railway.app/banner/getonebanner/?_id=${_id}`,
         {
           headers: { Authorization: `Bearer ${authToken}` }
         }
@@ -61,7 +61,7 @@ const AddBannerForm = () => {
 
     try {
       bannerEdit ?
-        await axios.put(`http://localhost:7000/banner/updatebanner/?_id=${_id}`, uploadData,
+        await axios.put(`https://popcornspotbackend-production.up.railway.app/banner/updatebanner/?_id=${_id}`, uploadData,
           {
             headers: {
               "Content-Type": "multipart/form-data",
@@ -80,7 +80,7 @@ const AddBannerForm = () => {
 
           }) :
         await axios
-          .post("http://localhost:7000/banner/addbanner", uploadData, {
+          .post("https://popcornspotbackend-production.up.railway.app/banner/addbanner", uploadData, {
             headers: {
               "Content-Type": "multipart/form-data",
               Authorization: `Bearer ${authToken}`,

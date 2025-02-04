@@ -8,7 +8,7 @@ const fetchAllReports = async (setReports) => {
   try {
     const authToken = localStorage.getItem("token");
     await axios
-      .get(`http://localhost:7000/report/superadmin/getallreports`, {
+      .get(`https://popcornspotbackend-production.up.railway.app/report/superadmin/getallreports`, {
         headers: { Authorization: `Bearer ${authToken}` },
       })
       .then((res) => {
@@ -38,7 +38,7 @@ const ReportPage = () => {
     toast.info(`Viewing ${name} Report`); // Changed alert to toast
     try {
       await axios
-        .get(`http://localhost:7000/report/superadmin/getsinglereport/?_id=${_id}`, {
+        .get(`https://popcornspotbackend-production.up.railway.app/report/superadmin/getsinglereport/?_id=${_id}`, {
           headers: { Authorization: `Bearer ${authToken}` },
         })
         .then((res) => {
@@ -63,7 +63,7 @@ const ReportPage = () => {
     try {
       await axios
         .put(
-          `http://localhost:7000/report/superadmin/updatereport/?_id=${_id}`,
+          `https://popcornspotbackend-production.up.railway.app/report/superadmin/updatereport/?_id=${_id}`,
           data,
           {
             headers: { Authorization: `Bearer ${authToken}` },

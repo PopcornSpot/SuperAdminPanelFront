@@ -22,7 +22,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
   try {
     const authToken = localStorage.getItem("token");
     await axios
-      .get(`http://localhost:7000/admin/superadmin/getsingleadmin/?_id=${_id}`,
+      .get(`https://popcornspotbackend-production.up.railway.app/admin/superadmin/getsingleadmin/?_id=${_id}`,
         {
           headers: { Authorization: `Bearer ${authToken}` }
         }
@@ -58,7 +58,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
       console.log("token",authToken);
       
       adminEdit?  
-      await axios.put(`http://localhost:7000/admin/superadmin/updateadmin/?_id=${_id}`, formData,
+      await axios.put(`https://popcornspotbackend-production.up.railway.app/admin/superadmin/updateadmin/?_id=${_id}`, formData,
         {
           headers: { Authorization: `Bearer ${authToken}` }
         }
@@ -74,7 +74,7 @@ const fetchAdminForUpdate = async (_id,setForm) => {
       })
       :
       await axios
-        .post("http://localhost:7000/admin/superadmin/register", formData,
+        .post("https://popcornspotbackend-production.up.railway.app/admin/superadmin/register", formData,
           {
             headers: { Authorization: `Bearer ${authToken}` }
           }

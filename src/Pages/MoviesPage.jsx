@@ -13,7 +13,7 @@ const MoviesPage = () => {
   const fetchMovie = async () => {
     try {
       await axios
-        .get("http://localhost:7000/movie/superadmin/getallmovie", {
+        .get("https://popcornspotbackend-production.up.railway.app/movie/superadmin/getallmovie", {
           headers: { Authorization: `Bearer ${authToken}` },
         })
         .then((res) => {
@@ -42,7 +42,7 @@ const MoviesPage = () => {
     try {
       await axios
         .delete(
-          `http://localhost:7000/superadmin/delete/delete/?_id=${_id}`,
+          `https://popcornspotbackend-production.up.railway.app/superadmin/delete/delete/?_id=${_id}`,
           {
             headers: { Authorization: `Bearer ${authToken}` },
           }
@@ -69,7 +69,7 @@ const MoviesPage = () => {
       const status = { status: "Published" };
       await axios
         .put(
-          `http://localhost:7000/movie/superadmin/updatemovie/?_id=${_id}`,
+          `https://popcornspotbackend-production.up.railway.app/movie/superadmin/updatemovie/?_id=${_id}`,
           status,
           {
             headers: { Authorization: `Bearer ${authToken}` },
@@ -107,7 +107,7 @@ const MoviesPage = () => {
                   className="flex flex-col md:flex-row bg-gray-700 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 p-6 gap-6 md:gap-8"
                 >
                   <img
-                    src={"http://localhost:7000/upload/" + movie.fileName}
+                    src={"https://popcornspotbackend-production.up.railway.app/upload/" + movie.fileName}
                     alt={`${movie.title} Poster`}
                     className="w-full md:w-48 h-72 object-cover rounded-xl border-4 border-gray-200"
                   />

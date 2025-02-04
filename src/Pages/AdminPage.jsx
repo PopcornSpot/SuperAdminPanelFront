@@ -14,7 +14,7 @@ const AdminPage = () => {
     try {
       const authToken = localStorage.getItem("token");
       const res = await axios.get(
-        "http://localhost:7000/admin/superadmin/alladmin",
+        "https://popcornspotbackend-production.up.railway.app/admin/superadmin/alladmin",
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
@@ -33,7 +33,7 @@ const AdminPage = () => {
     try {
       const authToken = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:7000/admin/superadmin/deleteadmin/?_id=${_id}`,
+        `https://popcornspotbackend-production.up.railway.app/admin/superadmin/deleteadmin/?_id=${_id}`,
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
@@ -86,7 +86,7 @@ const AdminPage = () => {
                     <td className="border border-gray-700 px-4 py-2 text-center">
                       {admin.fileName ? (
                         <img
-                          src={`http://localhost:7000/upload/${admin.fileName}`}
+                          src={`https://popcornspotbackend-production.up.railway.app/upload/${admin.fileName}`}
                           alt={admin.adminName}
                           className="w-10 h-10 object-cover rounded-full mx-auto"
                         />
@@ -145,7 +145,7 @@ const AdminPage = () => {
             <div className="text-left text-gray-200">
               {selectedAdmin.fileName ? (
                 <img
-                  src={`http://localhost:7000/upload/${selectedAdmin.fileName}`}
+                  src={`https://popcornspotbackend-production.up.railway.app/upload/${selectedAdmin.fileName}`}
                   alt={selectedAdmin.adminName}
                   className="w-32 h-32 object-cover rounded-full mx-auto mt-4"
                 />

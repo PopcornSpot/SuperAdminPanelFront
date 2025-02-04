@@ -23,7 +23,7 @@ const LoginPage = () => {
 
     try {
       await axios
-        .post("http://localhost:7000/superadmin/login", formData)
+        .post("https://popcornspotbackend-production.up.railway.app/superadmin/login", formData)
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           toast.success(res.data.Message);
