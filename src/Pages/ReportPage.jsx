@@ -31,11 +31,11 @@ const ReportPage = () => {
   const [reports, setReports] = useState([]);
   const [reportData, setReportData] = useState({});
   const [viewmode, setViewmode] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); // State for search term
+  const [searchTerm, setSearchTerm] = useState(""); 
   const authToken = localStorage.getItem("token");
 
   const handleStatusChange = async (_id, name) => {
-    toast.info(`Viewing ${name} Report`); // Changed alert to toast
+    toast.info(`Viewing ${name} Report`); 
     try {
       await axios
         .get(`https://popcornspotbackend-production.up.railway.app/report/superadmin/getsinglereport/?_id=${_id}`, {
@@ -55,7 +55,7 @@ const ReportPage = () => {
   };
 
   const updateStatus = async (_id, name) => {
-    toast.info(`Updating ${name} Report`); // Changed alert to toast
+    toast.info(`Updating ${name} Report`); 
     const data = {
       ...reportData,
       status: "Resolved",
@@ -92,7 +92,6 @@ const ReportPage = () => {
     fetchAllReports(setReports);
   }, []);
 
-  // Filter reports based on the search term (by subject or name)
   const filteredReports = reports.filter((report) =>
     report.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
     report.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -104,11 +103,10 @@ const ReportPage = () => {
       <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
         <div className="p-6 bg-gradient-to-b relative from-gray-800 to-gray-900 min-h-screen">
           <div className="max-w-6xl mx-auto bg-gray-800 p-8 rounded-xl shadow-xl">
-            <div className=" flex items-start justify-between w-full h-full">
+            <div className=" flex flex-col sm:flex-row gap-3 items-start justify-between w-full h-full">
               <h1 className="text-3xl font-semibold text-gray-200 mb-6">
                 Report Page
               </h1>
-              {/* Search bar */}
               <div className="flex items-center space-x-2 bg-gray-700 p-2 rounded-md">
                 <FaSearch className="text-gray-400" />
                 <input
