@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import SidebarComponent from "../Components/Sidebar";
-import { FaSearch } from 'react-icons/fa'; // Importing search icon
+import SidebarComponent from "../Components/SideBar";
+import { FaSearch } from 'react-icons/fa';
 
 const fetchAllReports = async (setReports) => {
   try {
