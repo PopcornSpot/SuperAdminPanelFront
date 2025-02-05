@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import logo from '../assets/logo.png';
 
 const initialState = {
   email: "",
@@ -45,10 +46,18 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-700 to-gray-900">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-6 text-orange-400">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-[90%] sm:w-full max-w-md">
+        <div className="flex justify-center">
+          <img 
+            src={logo} 
+            alt="Logo"
+            className="w-24 h-20 sm:w-36 sm:h-20 object-contain"
+          />
+        </div>
+
+        {/* <h1 className="text-3xl font-bold text-center mb-6 text-orange-400">
           Login
-        </h1>
+        </h1> */}
         <form onSubmit={handleOnSubmit} onReset={handleReset}>
           <div className="mb-5">
             <label className="block text-gray-300 font-semibold mb-2">

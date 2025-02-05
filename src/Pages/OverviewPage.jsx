@@ -205,10 +205,10 @@ const OverviewPage = () => {
   return (
     <>
       <SidebarComponent />
-      <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
+      <div className="ml-60 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
         <div className="p-6 bg-gray-900 w-full min-h-screen">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-200">Dashboard Overview</h1>
+            <h1 className="text-3xl font-bold mt-10 sm:mt-0 text-gray-200">Dashboard Overview</h1>
           </div>
           <div className="w-full flex items-center flex-wrap justify-center gap-6">
             {overviewDetails.map((value, index) => (

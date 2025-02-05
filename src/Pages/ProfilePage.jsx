@@ -67,7 +67,6 @@ const SuperAdminProfilePage = () => {
     getAdminDetails();
   }, []);
 
-  // Calculating statistics dynamically
   const stats = {
     totalAdmins: Admin.length,
     activeUsers: totalUser.length,
@@ -77,9 +76,9 @@ const SuperAdminProfilePage = () => {
   return (
     <>
       <SidebarComponent />
-      <div className="ml-52 xl:ml-60 max-sm:ml-0 flex-1 p-5 bg-gray-900">
+      <div className="ml-60 xl:ml-64 max-sm:ml-0 flex-1 p-5 bg-gray-900">
         <div className="p-6 bg-gray-900 min-h-screen">
-          <h1 className="text-2xl font-bold text-gray-200 mb-6">Profile</h1>
+          <h1 className="text-3xl font-bold mt-12 sm:mt-0 text-gray-200 mb-6">Profile</h1>
 
           <div className="flex flex-col lg:flex-row bg-gray-800 shadow rounded-lg overflow-hidden">
             <div className="lg:w-1/3 flex items-center justify-center bg-gray-800 p-6">
